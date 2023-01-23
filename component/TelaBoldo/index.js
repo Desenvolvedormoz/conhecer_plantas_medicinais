@@ -11,17 +11,17 @@ const TelaBoldo = () =>{
     <ScrollView>
     <SafeAreaView>
       <Image source={Boldo} style={estilos.myImage} />
-    <View style={estilos.myContainer}>
-        <Text style={estilos.strong}>Nome: Boldo</Text>
+      <View style={estilos.myContainer}>
+        <Text  style={estilos.strong}>Nome: Boldo</Text>
         <Text style={estilos.strong}>Nome Científico: Plectranthus barbatus Andrews</Text>
-        <Text style={estilos.strong}>Familia: Lamiaceae</Text>
+        <Text  style={estilos.strong}>Familia: Lamiaceae</Text>
 
         <Text style={estilos.subtitulo}>Origem do Boldo</Text>
         <Text style={estilos.texto}>Planta de origem Africano, o boldo é muito usado na medicina tradicional para
         o tratamento por séculos e em todo o mundo.</Text>
         <Text style={estilos.texto}>Por ser muito usado no mundo, o boldo foi alvo de inúmeras pesquisas de estudos
         farmacológicos e químicos.</Text>
-        <View>
+        <View accessible={true}>
           <Text style={estilos.subtitulo}>Usos do boldo</Text>
           <Text style={estilos.texto}>O boldo tem três usos: Culinária, ornamentação e medicinal.</Text>
 

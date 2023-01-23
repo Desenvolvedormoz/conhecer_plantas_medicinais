@@ -9,7 +9,7 @@ const TelaMirabilis = () => {
   return(
     <ScrollView>
       <Image source={Maravilha} style={estilos.myImage} />
-    <View style={estilos.myContainer}>
+    <View accessible={true} style={estilos.myContainer}>
         <Text style={estilos.strong}>Nome: maravilha, bela-da-noite</Text>
         <Text style={estilos.strong}>Nome científico: Mirabilis Jalapa</Text>
         <Text style={estilos.strong}>Familia: Nyctaginaceae</Text>
@@ -32,7 +32,7 @@ const TelaMirabilis = () => {
          <Text style={estilos.texto}>Apesar de apresentar benefícios para a saúde, as raizes e as sementes são muito tóxicos.
           Por isso veja o que alguns artigos recomendam:<Text style={estilos.strong}>"O seu uso deve ser evitado, principalmente as raízes e sementes.
           O contato com a pele pode causar irritações cutâneas e quando ingerida pode provocar diarréias, náuseas e fortes 
-          dores de estómago." </Text><Text style={estilos.strong} onPress={()=>Linking.openURL('https://batatadoceira.blogspot.com/2018/02/cuidado-com-as-flores-toxicas.html')}>Veja o site</Text>
+          dores de estómago." </Text><Text style={estilos.strongLink} onPress={()=>Linking.openURL('https://batatadoceira.blogspot.com/2018/02/cuidado-com-as-flores-toxicas.html')}>Veja o site</Text>
          </Text>
          <Text style={estilos.strong}> "Embora suas raízes tuberosas sejam consideradas venenosas,..." <Text style={estilos.strong} onPress={()=>Linking.openURL('http://www.unirio.br/ccbs/ibio/herbariohuni/mirabilis-jalapa-l')}>Leia o site</Text>
          </Text>

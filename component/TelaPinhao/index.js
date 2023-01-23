@@ -8,7 +8,7 @@ const TelaPinhao = () => {
   return(
     <ScrollView>
       <Image source={Piao} style={estilos.myImage}/>
-    <View style={estilos.myContainer}>
+    <View accessible={true} style={estilos.myContainer}>
         <Text style={estilos.strong}>Nome: Pião-roxo, Pinhão roxo</Text>
         <Text style={estilos.strong}>Nome científico: Jatropha gossypiifolia</Text>
         <Text style={estilos.strong}>Familia: Euphorbiaceae</Text>

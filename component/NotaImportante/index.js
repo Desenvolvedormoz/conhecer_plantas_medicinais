@@ -6,9 +6,13 @@ const NotaImportante = () => {
   
   return(
     <View>
-        <View style={estilos.nota}></View>
+        <View accessible={true} style={estilos.nota}></View>
         <Text style={estilos.strong}>Nota:</Text>
-        <Text>Atenção: O uso de plantas medicinais não deve ser feito sem acompanhamento médico ou de um especialista. As informações deste aplicativo são apenas informativos. Nenhum tratamento deve ser abandonado sem o conhecimento de seu médico.</Text>
+        <Text style={{fontSize: 10,}}><Text style={{color: '#660E00', 
+        fontSize: 14, fontWeight: 'bold', textTransform: 'uppercase'}}>
+          Atenção:</Text> As plantas medicinais podem ser perigosas e até matar. Este aplicativo não se destina 
+          a dar orientação médica sobre tratamentos de saúde. Esta aplicação é apenas para informar sobre as descobertas
+          científicas sobre algumas plantas usadas pelas populações. Nenhum tratamento médico deve ser abandonado sem orientação médica ou de um especialista.</Text>
     </View>
   )
 }

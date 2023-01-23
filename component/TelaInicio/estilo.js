@@ -6,7 +6,6 @@ const estilo = StyleSheet.create({
         fontSize: 22,
         fontWeight: '700',
         color: '#F0F0F0',
-        backgroundColor: '#206E8C',
         paddingHorizontal: 80,
         paddingVertical: 10,
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Linking, ScrollView, Text, View } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import ErvaJoao from '../../assets/images/ervajoao.png';
+import NotaImportante from '../NotaImportante';
 
 const TelaErvaSaoJoao = () => {
   return(
@@ -12,11 +13,11 @@ const TelaErvaSaoJoao = () => {
     <Text style={estilos.strong}>Nome científico: </Text>
     <Text style={estilos.strong}>Familia</Text>
 
-    <View>
+    <View accessible={true}>
       <Text style={estilos.subtitulo}>Preste muita atenção</Text>
       <Text style={estilos.texto}>"Existem reivindicações de que a erva-de-são-joão consegue inibir o HIV, o vírus 
         que causa a AIDS. No entanto, ela interfere nos efeitos de muitos dos medicamentos que 
-        são mais eficazes para tratar a infecção por HIV." <Text onPress={()=>Linking.openURL('https://www.msdmanuals.com/pt/casa/assuntos-especiais/suplementos-alimentares-e-vitaminas/erva-de-s%C3%A3o-jo%C3%A3o')}>Mdmauals</Text></Text>
+        são mais eficazes para tratar a infecção por HIV." <Text style={{color: '#00274E'}} onPress={()=>Linking.openURL('https://www.msdmanuals.com/pt/casa/assuntos-especiais/suplementos-alimentares-e-vitaminas/erva-de-s%C3%A3o-jo%C3%A3o')}>Mdmauals</Text></Text>
     <Text style={estilos.texto}>Vários estudos científicos controlados com placebos foram feitos sobre a erva de são João.</Text>
     <Text style={estilos.texto}>"Em geral, esses estudos mostram que a erva-de-são-joão pode beneficiar pessoas com 
       depressão leve a moderada e pode até mesmo ser tão eficaz quanto alguns antidepressivos 
@@ -36,6 +37,8 @@ const TelaErvaSaoJoao = () => {
 
     <Text style={estilos.texto}>Gestantes e pessoas que tomam medicamentos para infecção por HIV não devem tomar a 
   erva-de-são-joão."</Text>
+
+  <NotaImportante />
     </View>
     </ScrollView>
   )

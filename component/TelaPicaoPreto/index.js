@@ -8,12 +8,12 @@ const TelaPicaoPreto = () => {
   return(
     <ScrollView>
       <Image source={Picao} style={estilos.myImage} />
-    <View style={estilos.myContainer}>
+    <View accessible={true} style={estilos.myContainer}>
         <Text style={estilos.strong}>Nome: Picão preto</Text>
         <Text style={estilos.strong}>Nome científico: Bidens pilosa</Text>
         <Text style={estilos.strong}>Familia: Asteraceae </Text>
 
-        <View>
+        <View accessible={true}>
           <Text style={estilos.subtitulo}>Origem de Bidens pilosa</Text>
           <Text style={estilos.texto}>Acredita se que bidens pilosa tenha se originado da América do sul e com o passar do tempo, se
             espalhado para as diferentes partes do mundo.

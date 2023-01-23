@@ -8,13 +8,14 @@ const TelaCarqueja = () => {
 
   return(
     <ScrollView>
+      
       <Image source={Carqueja} style={estilos.myImage} />
-    <View>
+    <View style={estilos.myContainer}>
         <Text style={estilos.strong}>Nome: Carqueja</Text>
         <Text style={estilos.strong}>Nome científico: Baccharis trimera</Text>
         <Text style={estilos.strong}>Familia: Asteraceae</Text>
 
-        <View style={estilos.myContainer}>
+        <View>
           <Text style={estilos.subtitulo}>Origem da Carqueja</Text>
           <Text style={estilos.texto}>Carqueja com nome científico Baccharis trimera, 
           é uma espécie da Familia Asteraceae cujo Origem é na América do sul. É mais 
@@ -41,7 +42,7 @@ const TelaCarqueja = () => {
               necessidade de ajuste das doses em caso de ingestão simultânea de extratos com carqueja.</Text>
                 <Text style={estilos.texto}>O uso da carqueja junto com inibidores da síntese de proteína 
                 (tetraciclina, cloranfenicol e netilmicim) também resulta em uma interação medicamentosa. 
-                 <Text onPress={()=>Linking.openURL('https://www.scielo.br/j/rbpm/a/CFY3XWVTbXbwTXWKYkhvMgv/?lang=pt')} style={estilos.strong}> Aprenda mais neste artigo</Text></Text>
+                 <Text style={{color: '#00274E', fontSize: 18,}} onPress={()=>Linking.openURL('https://www.scielo.br/j/rbpm/a/CFY3XWVTbXbwTXWKYkhvMgv/?lang=pt')}> Aprenda mais neste artigo</Text></Text>
                 <NotaImportante />
         </View>
     </View>

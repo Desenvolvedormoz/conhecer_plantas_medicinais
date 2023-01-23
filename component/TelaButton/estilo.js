@@ -4,7 +4,7 @@ const estilo = StyleSheet.create({
     buttonText: {
         fontSize: 18,
         fontWeight: '600',
-        color: '#F0F0F0'
+        color: '#D0D0D0'
     }
 })
 export default estilo;

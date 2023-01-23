@@ -3,13 +3,24 @@ import { View, Text, ScrollView, Image, SafeAreaView } from "react-native";
 import Abacateiro from '../../assets/images/abacate.png';
 import estilos from "../../assets/estilos/estilos";
 import NotaImportante from "../NotaImportante";
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/3987958268';
 
 export default function TelaAbacateiro(){
+  
     return(
-         <ScrollView>
-    <SafeAreaView>
+     <ScrollView>
+   <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    <SafeAreaView >
       <Image source={Abacateiro} style={estilos.myImage} />
-    <View style={estilos.myContainer}>
+    <View accessible={true} style={estilos.myContainer}>
     <Text style={estilos.strong}>Nome da Planta: <Text>Abacateiro</Text></Text>
     <Text style={estilos.strong}>Nome Científico: <Text>Persea Americana</Text></Text>
     <Text style={estilos.strong}>Familia: <Text>Lauraceae</Text></Text>
@@ -17,7 +28,7 @@ export default function TelaAbacateiro(){
     <Text style={estilos.subtitulo}>Origem do Abacate</Text>
     <Text style={estilos.texto}>O Abacate originou se do México e da América do Sul, a árvore pode atingir entre 15 à 20 metros de altura.</Text>
 
-    <View>
+    <View accessible={true}>
       <Text style={estilos.subtitulo}>Usos do Abacate</Text>
 
       <Text style={estilos.texto}><Text>Na Alimentação: </Text>Foi comprovados pelos estudos Científicos que
@@ -31,7 +42,7 @@ export default function TelaAbacateiro(){
         <Text style={estilos.item}>{'\u2B24'}O Abacate é rico em fibras que contribue para a saciedade.</Text>
      <Text style={estilos.item}>{'\u2B24' + ' '}Ácido gracho monoinsaturado que ajuda a regular o clesterol.</Text>
     </View>
-    <View>
+    <View accessible={true}>
       <Text style={estilos.subtitulo}>Como conservar o abacate</Text>
 
       <Text style={estilos.texto}>Há três formas de conservar o abcate:</Text>
@@ -41,7 +52,7 @@ export default function TelaAbacateiro(){
           <Text style={estilos.item}>{'\u2B24' + ' '}Expremir suco de limão na superfície.</Text>
 
     </View>
-    <View>
+    <View accessible={true}>
       <Text style={estilos.subtitulo}>Descobertas Científicos</Text>
       <Text style={estilos.texto}>Recentemente os cientistas descobriram dois fitonutrientes no abacates: <Text onPress={()=>Linking.openURL('https://villalvafrutas.com.br/conheca-os-poderes-medicinais-do-abacate/')} style={estilos.strong}> a 
         glutatoína e o betassitosterol</Text>, sendo a glutotoina atua como um antioxidante
@@ -52,7 +63,7 @@ export default function TelaAbacateiro(){
       </Text>
       <Text style={estilos.texto}>O abacate é uma das melhores fontes de glutatoína e pode oferecer certa proteção contra o câncer oral, de garganta e outros tipos.</Text>
     </View>
-    <View>
+    <View accessible={true}>
       <Text style={estilos.titulo}>Composição química do abacateiro:</Text>
       <Text style={estilos.texto}>Os seguintes são elementos que fazem parte da composição química do abacate:
       Sacarina gordurosa e cerácea, resina cristalizada, substância
@@ -91,7 +102,7 @@ export default function TelaAbacateiro(){
 
       <Text style={estilos.texto}>As folhas verdes causam parpitações cardíacas, por isso seque as antes de usa las.</Text>
     </View>
-    <View>
+    <View accessible={true}>
       <Text style={estilos.subtitulo}>Modo de uso:</Text>
       <Text style={estilos.strong}>Dose e Posologia</Text>
       <Text style={estilos.strong}>Folhas:</Text>
@@ -105,10 +116,19 @@ export default function TelaAbacateiro(){
       <Text style={estilos.texto}> É contraindicado para quem faz regime de emagrecimento ou manutenção de peso, 
         por ser muito calórico e gorduroso e também é contraindicado para mulheres grávidas
          por que pode causar aborto</Text>
+
+       
     </View>
     <NotaImportante />
     </View>
     </SafeAreaView>
+    <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
     </ScrollView>
     )
 }

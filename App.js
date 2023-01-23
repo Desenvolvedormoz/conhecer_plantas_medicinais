@@ -13,26 +13,34 @@ import TelaOcimum from "./component/TelaOcimum";
 import TelaChanana from "./component/TelaChanana";
 import TelaErvaSaoJoao from "./component/TealaEvaSaoJoao";
 import { StatusBar } from "expo-status-bar";
-
+import SplashScreen from "./component/SplashScreen";
+import TelaPoliticas from "./component/TelaPoliticas";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 const Stack = createNativeStackNavigator();
 
 export default function App(){
+  
   return(
+  <GestureHandlerRootView style={{ flex: 1 }}>
+    
     <NavigationContainer>
-      <StatusBar backgroundColor="#3cb371" />
+      <StatusBar backgroundColor="#001200" />
       <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#38BDF2'
+          backgroundColor: '#0E2600'
         },
         headerTintColor: '#F0F0F0',
         headerTitleStyle: {
           fontWeight: '700',
-        }
+        },
       }}
       >
+        <Stack.Screen name="splash" component={SplashScreen} options={{
+          headerShown: false,
+        }} />
         <Stack.Screen name="Início" component={TelaInicio} />
         <Stack.Screen name="Abacatéiro" component={TelaAbacateiro} />
         <Stack.Screen name='Abóbora' component={TelaAbobora}/>
@@ -45,8 +53,13 @@ export default function App(){
         <Stack.Screen name='Chanana' component={TelaChanana} 
          options={{ animationEnabled: false,}}/>
         <Stack.Screen name='Erva de são joão' component={TelaErvaSaoJoao} />
+        <Stack.Screen name="Política" component={TelaPoliticas} />
+         
       </Stack.Navigator>
+      <StatusBar backgroundColor="#001200" />
     </NavigationContainer>
+   
+    </GestureHandlerRootView>
   )
 }
 

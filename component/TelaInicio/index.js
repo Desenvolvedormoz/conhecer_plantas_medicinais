@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, ScrollView, Image } from "react-native";
+import { SafeAreaView, Text, ScrollView, Image, Linking, View } from "react-native";
 import TelaListaItems from "../TelaListaItems";
 import estilos from "../../assets/estilos/estilos";
 import estilo from "./estilo";
@@ -15,7 +15,7 @@ import Alfavacao from '../../assets/images/alfavaca.png';
 import Chanana from '../../assets/images/chanana.png';
 import ErvaJoao from '../../assets/images/ervajoao.png';
 
-export default function TelaInicio() {
+export default function TelaInicio(props) {
 return(
 <ScrollView>
 <SafeAreaView style={estilos.containerAll}>
@@ -66,7 +66,11 @@ return(
     imagem = {ErvaJoao} descricao="Mentrasto é o nome científico desta planta. Ela tem sido usada para o tratamento
     de sintomas de depressão leve e moderado. As flores desta planta contém vários compostos biologicamente ativos, incluindo a hipericina e a hiperforina. Ela também tem sido usada
     para tratamento da pele e alguns dizem que esta planta pode inibir o hiv. Mas o que a ciência descobriu sobre esta planta? descubra neste artigo." />
-
+<View style={{height: 100, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+<Text style={estilos.strongLink} onPress={() => props.navigation.navigate('Política')}>
+    Políticas de Privacidade
+</Text>
+</View>
 </SafeAreaView>
 </ScrollView>
 )

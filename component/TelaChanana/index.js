@@ -15,11 +15,6 @@ const TelaChanana = () => {
     }
   }, []);
 
-  const repetirToque = useCallback(() => {
-    setTocar((prev) => !prev);
-  }, []);
-
-
   return(
     <ScrollView>
       <Image source={Chanana} style={estilos.myImage} />
@@ -46,7 +41,8 @@ const TelaChanana = () => {
       <View>
         <Text style={estilos.subtitulo}>Aprenda mais assistindo o vídeo</Text>
       <YoutubePlayer
-        height={205}
+        height={480}
+        width={480}
         webViewStyle={{opacity: 0.99}}
         play={tocar}
         videoId={"3Q_4M0ESqkk"}

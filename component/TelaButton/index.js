@@ -7,8 +7,12 @@ import estilo from './estilo';
 const ButtonComponent = ({tela}) => {
     const navigation = useNavigation()
   return(
-    <View>
-    <Pressable style={estilos.button} onPress={()=> navigation.navigate(tela)}>
+    <View accessible={true}>
+    <Pressable style={estilos.button}
+    accessible={true}
+    accessibilityLabel="Saiba mais sobre a planta"
+    accessibilityHint="Toque este botão para a página de detalhes"
+     onPress={()=> navigation.navigate(tela)}>
         <Text style={estilo.buttonText}>Sobre a planta</Text>
     </Pressable>
     </View>

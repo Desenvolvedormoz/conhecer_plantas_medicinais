@@ -6,7 +6,7 @@ const estilos = StyleSheet.create({
         flex: 1,
         justifyContent: `center`,
         alignItems: 'center',
-        backgroundColor: '#fff',    
+        backgroundColor: '#283a28',    
     }, 
     container: {
         width: '100%',
@@ -14,7 +14,7 @@ const estilos = StyleSheet.create({
         justifyContent: `center`,
         alignItems: `center`,
         padding: 5,
-        backgroundColor: `#eee`,
+        backgroundColor: `#647664`,
         marginBottom: 15,
         borderRadius: 10,
     },
@@ -44,8 +44,8 @@ const estilos = StyleSheet.create({
     },
     button: {
         width: 240,
-        height: 50,
-        backgroundColor: `#3cb371`,
+        height: 60,
+        backgroundColor: `#0E2600`,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
@@ -63,6 +63,7 @@ const estilos = StyleSheet.create({
     myContainer: {
         width: '100%',
         padding: 5,
+        backgroundColor: '#647664'
     },
     subtitulo: {
         fontSize: 20,
@@ -80,7 +81,7 @@ const estilos = StyleSheet.create({
     },
     strongLink: {
         fontSize: 18,
-        color: '#99F',
+        color: '#00274E',
     },
     italico: {
         fontSize: 18,
@@ -109,7 +110,7 @@ const estilos = StyleSheet.create({
     subtituloLink:{
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#64F',
+        color: '#00274E',
         marginVertical: 15,
     }
 });

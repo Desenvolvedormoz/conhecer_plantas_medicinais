@@ -2,12 +2,13 @@ import React from 'react';
 import { Image, Linking, ScrollView, Text, View } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import Alfavacao from '../../assets/images/alfavaca.png';
+import NotaImportante from '../NotaImportante';
 
 const TelaOcimum = () => {
   return(
     <ScrollView>
       <Image source={Alfavacao} style={estilos.myImage} />
-    <View style={estilos.myContainer}>
+    <View accessible={true} style={estilos.myContainer}>
          <Text style={estilos.strong}>Nome popular: alfavacão, alfavaca-cravo</Text>
         <Text style={estilos.strong}>Nome científico: Ocimum Gratissimum</Text>
         <Text style={estilos.strong}>Familia: Lamiaceae </Text>
@@ -28,7 +29,7 @@ const TelaOcimum = () => {
           <Text style={estilos.texto}>Reduz glicemia, Anti-inflamatória, Estomáquica, Carminativa, Broncodilatador, Antialergênica
           Antigripal, Antitussígena, Sedativa, Analgésica, Febrífuga</Text>
         </View>
-        <View>
+        <View accessible={true}>
           <Text style={estilos.subtitulo}>Indicação para alfavacão</Text>
           <Text style={estilos.texto}>Segundo alguns artigos da internet, o alfavacão pode ser indicado para tratamento de problemas
             do sistema digestivo, sistema nervoso, sistema respiratório e geral.
@@ -40,6 +41,7 @@ const TelaOcimum = () => {
           <Text style={estilos.texto}><Text style={estilos.strong} onPress={() => Linking.openURL('https://www.oficinadeervas.com.br/conteudo/alfavacao')}>O alfavacão é containdicado</Text> em gestantes, crianças menores de 6 anos, pessoas com gastrites e úlceras gastroduodenais, síndrome do cólon irritável, colites, hepatopatias, epilepsia, Parkinson e hipoglicemia</Text>
 
         </View>
+        <NotaImportante />
     </View>
     </ScrollView>
   )
