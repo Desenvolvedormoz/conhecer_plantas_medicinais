@@ -9,24 +9,29 @@
     "splash": {
       "image": "./assets/splashimage.png",
       "resizeMode": "contain",
-      "backgroundColor": "#0E2600"
+      "backgroundColor": "#01220f"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/48e2fabe-4310-4dac-9dfd-df75e8c8f96b"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "n"
+      "bundleIdentifier": "n",
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#0E2600"
+        "backgroundColor": "#01220f"
       },
-      "package": "com.devalface.conhecer_plantas"
+      "package": "com.devalface.conhecer_plantas",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -41,7 +46,7 @@
     }
   },
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-4625666726446510~7188836671",
-    "ios_app_id": "ca-app-pub-4625666726446510~7188836671"
+    "android_app_id": "ca-app-pub-4625666726446510~2081470917",
+    "ios_app_id": "ca-app-pub-4625666726446510~2081470917"
   }
 }

@@ -10,8 +10,8 @@ const ButtonComponent = ({tela}) => {
     <View accessible={true}>
     <Pressable style={estilos.button}
     accessible={true}
-    accessibilityLabel="Saiba mais sobre a planta"
-    accessibilityHint="Toque este botão para a página de detalhes"
+    accessibilityLabel="Toque me"
+    accessibilityHint="Button"
      onPress={()=> navigation.navigate(tela)}>
         <Text style={estilo.buttonText}>Sobre a planta</Text>
     </Pressable>

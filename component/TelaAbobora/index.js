@@ -1,20 +1,41 @@
 import React from 'react';
-import { ScrollView,SafeAreaView,Text, View, Image, FlatList } from 'react-native';
+import { ScrollView,SafeAreaView,Text, View, Image } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import NotaImportante from '../NotaImportante';
 import Abobora from '../../assets/images/abobras.png'
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 const TelaAbobora = () => {
   return(
+  <SafeAreaView>
+    
+    <View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+      <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
     <ScrollView>
-        <SafeAreaView>
-        <Image source={Abobora} style={estilos.myImage} />
-    <View accessible={true} style={estilos.myContainer}>
+      <View accessible={true}
+    accessibilityHint={"Leia o artigo"}
+    accessibilityLabel={"Texto"}
+     style={estilos.myContainer}>
+      <Image accessible={true}
+    accessibilityLabel={"Image"} source={Abobora} style={estilos.myImage} />
+    
     <Text style={estilos.strong}>Nome da Planta: <Text>Abóbora</Text></Text>
     <Text style={estilos.strong}>Nome Científico: <Text>Cucurbita pepo L</Text></Text>
     <Text style={estilos.strong}>Familia: <Text>Curcubitaceae</Text></Text>
 
-    <View accessible={true}>
+    <View accessible={true}
+    accessibilityHint={"Leia esta seção seção"}
+    accessibilityLabel={"Texto"}>
         <Text style={estilos.subtitulo}>Origem de Abóbora</Text>
         <Text style={estilos.texto}>O Abóbora é o alimento mais versátil do mundo, tendo origem na América do sul é produzido em
             todo o mundo. Seu fruto é muito saboroso e nutritivo.
@@ -25,8 +46,19 @@ const TelaAbobora = () => {
         </Text>
         <Text style={estilos.subtitulo}>Usos de Abóbora</Text>
         <Text style={estilos.texto}>O Abóbora é usado como alimento, para ornamentação e para tratamento de saúde.</Text>
+        <View style={{width: '80%', justifyContent: 'center', alignItems: 'center', marginVertical: 10}}>
+        <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
     </View>
-    <View accessible={true}>
+    </View>
+    <View accessible={true}
+    accessibilityHint={"Leia mais esta seção"}
+    accessibilityLabel={"Texto"}>
         <Text style={estilos.subtitulo}>Uso de Abóbora na Alimentação</Text>
         <Text style={estilos.texto}>A Abóbora pode ser consumida como salada, refogada ou cozida, como soupa ou doce.
          A sua semente pode ser torada e petiscada e suas folhas podem ser refogados. Na África, as folhas de Abóbora são refogadas 
@@ -37,14 +69,18 @@ const TelaAbobora = () => {
        <Text style={estilos.texto}>As sementes de Abóbora tem uma boa quantidade de ferro e de gorduaras insaturadas. Além disso, a Abóbora possui uma boa quantidade 
        de antioxidades.</Text>
     </View>
-    <View accessible={true}>
+    <View accessible={true}
+    accessibilityHint={"Leia mais esta seção"}
+    accessibilityLabel={"Texto"}>
     <Text style={estilos.subtitulo}>Problemas de saúde que pode ser resolvidos  pelo consumo de Abóbora</Text>
 
     <Text style={estilos.texto}>O consumo de Abóbora ajuda a reduzir ou resolver os seguintes problemas de saúde:
     Câncer, doenças cardiovasculares por causa da presença de antioxidantes,  derrame e problemas nos olhos como a catarrata. Combate prisão de ventre e é indicado para problemas gastro intestinais e de rins.</Text>
     <Text style={estilos.texto}>As fibras da abóbora ajudam a reduzir o apetite, por isso, pode ser útil para quem tem excesso de peso.</Text>
     </View>
-    <View accessible={true}>
+    <View accessible={true}
+    accessibilityHint={"Leia mais uma seção"}
+    accessibilityLabel={"Texto"}>
     <Text style={estilos.subtitulo}>Constituição química da abóbora</Text>
     <Text style={estilos.texto}>Veja a seguir a Constituição química da abóbora:</Text>
     <Text style={estilos.texto}><Text style={estilos.strong}>Sementes:</Text> óleo essencial (até 50%), albuminas, glicosídeo (cucurbitina), resina, minerais (principalmente) zinco.</Text>
@@ -65,13 +101,12 @@ const TelaAbobora = () => {
      <Text style={estilos.item}>{'\u2B24' + ' '}Folhas</Text>
      <Text style={estilos.item}>{'\u2B24' + ' '}Flores</Text>
      <Text style={estilos.item}>{'\u2B24' + ' '}Polpa</Text>
-
+     
     </View>
     <NotaImportante />
     </View>
-
-    </SafeAreaView>
     </ScrollView>
+  </SafeAreaView>
   );
 }
 

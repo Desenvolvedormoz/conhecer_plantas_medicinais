@@ -1,8 +1,11 @@
-import React, { useCallback, useRef, useState } from 'react';
-import { Image, Linking, ScrollView, Text, View, Button, Alert, Pressable } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { Image, Linking, ScrollView, Text, View, SafeAreaView } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import Chanana from '../../assets/images/chanana.png';
 import YoutubePlayer from "react-native-youtube-iframe";
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 
 const TelaChanana = () => {
@@ -16,9 +19,26 @@ const TelaChanana = () => {
   }, []);
 
   return(
+    <SafeAreaView>
+      
+      <View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+        <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+      </View>
     <ScrollView>
-      <Image source={Chanana} style={estilos.myImage} />
-    <View style={estilos.myContainer}>
+      <View accessible={true}
+    accessibilityHint={"Leia o artigo"}
+    accessibilityLabel={"Texto"} style={estilos.myContainer}>
+      <Image accessible={true}
+    accessibilityLabel={"Image"} source={Chanana} style={estilos.myImage} />
+    
+    
       <Text style={estilos.strong}>Nome popular: Chanana</Text>
       <Text style={estilos.strong}>Nome científico: Tunera guynensis L</Text>
       <Text style={estilos.strong}>Familia: </Text>
@@ -39,19 +59,26 @@ const TelaChanana = () => {
           <Text style={estilos.subtitulo}>Parte a ser usada</Text>
           <Text style={estilos.texto}>folha, raiz e flor</Text> 
       <View>
+      
         <Text style={estilos.subtitulo}>Aprenda mais assistindo o vídeo</Text>
+      <View accessible={true}
+    accessibilityHint={"Assista um vídeo"}
+    accessibilityLabel={"Video"}>
       <YoutubePlayer
-        height={480}
-        width={480}
+        height={300}
         webViewStyle={{opacity: 0.99}}
         play={tocar}
         videoId={"3Q_4M0ESqkk"}
         onChangeState={qundoMudamosEstado}
       />
       <Text style={estilos.credito}>O vídeo não é da minha autoria, tão pouco alguma parceria ou afiliação com o autor. Foi apenas mais uma referência para aprender mais sobre esta planta. Se quiser assistir mais vídeos do autor visite <Text onPress={()=>Linking.openURL('https://www.youtube.com/@vidanojardim')}> https://www.youtube.com/@vidanojardim</Text></Text>
+      
       </View>
       </View>
+     </View>
     </ScrollView>
+     
+    </SafeAreaView>
   )
 }
 

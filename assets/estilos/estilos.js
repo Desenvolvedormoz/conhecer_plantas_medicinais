@@ -6,7 +6,8 @@ const estilos = StyleSheet.create({
         flex: 1,
         justifyContent: `center`,
         alignItems: 'center',
-        backgroundColor: '#283a28',    
+        backgroundColor: '#283a28',  
+        paddingBottom: 100,  
     }, 
     container: {
         width: '100%',
@@ -63,7 +64,9 @@ const estilos = StyleSheet.create({
     myContainer: {
         width: '100%',
         padding: 5,
-        backgroundColor: '#647664'
+        backgroundColor: '#647664',
+        flex: 1,
+        paddingBottom: 100,
     },
     subtitulo: {
         fontSize: 20,
@@ -112,6 +115,7 @@ const estilos = StyleSheet.create({
         fontWeight: 'bold',
         color: '#00274E',
         marginVertical: 15,
-    }
+    },
+   
 });
 export default estilos;

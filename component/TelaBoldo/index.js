@@ -3,15 +3,33 @@ import { View, Text, ScrollView, SafeAreaView, Image } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import Boldo from '../../assets/images/boldo.png';
 import NotaImportante from '../NotaImportante';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 const TelaBoldo = () =>{
  
   return(
+<SafeAreaView> 
 
+<View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+  <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+</View>
+  
     <ScrollView>
-    <SafeAreaView>
-      <Image source={Boldo} style={estilos.myImage} />
-      <View style={estilos.myContainer}>
+    <View accessible={true}
+    accessibilityHint={"Leia o artigo"}
+    accessibilityLabel={"Texto"} style={estilos.myContainer}>
+      <Image accessible={true}
+    accessibilityLabel={"Image"} source={Boldo} style={estilos.myImage} />
+     
         <Text  style={estilos.strong}>Nome: Boldo</Text>
         <Text style={estilos.strong}>Nome Científico: Plectranthus barbatus Andrews</Text>
         <Text  style={estilos.strong}>Familia: Lamiaceae</Text>
@@ -43,7 +61,19 @@ const TelaBoldo = () =>{
           <Text style={estilos.subtitulo}>Problemas indicados para tratamento com boldo:</Text>
           <Text style={estilos.texto}>asma, bronquite, diarréia (extrato cru das folhas é antiviral), fadiga do fígado, distúrbios intestinais, 
           hepatite, cólica e congestão do fígado, obstipação, inapetência, cálculos biliares, debilidade orgânica, insônia, ressaca alcoólica.</Text>
+          <View style={{width: '80%', justifyContent: 'center', alignItems: 'center', marginVertical: 10}}>
+          <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
         </View>
+        <View accessible={true}
+    accessibilityHint={"Leia a uma seção"}
+    accessibilityLabel={"Texto"}>
         <Text style={estilos.subtitulo}>Dose e posologia</Text>
         <Text style={estilos.texto}>Tintura: 20 g da planta fresca em 100 ml de álcool. Tomar 20 a 40 gotas até 3 vezes ao dia.</Text>
         <Text style={estilos.texto}>Sumo: amassar 2 folhas frescas em 1 copo e completar com água. Aguardar 5 horas e tomar (2 a 3 vezes ao dias).</Text>
@@ -51,11 +81,14 @@ const TelaBoldo = () =>{
         <Text style={estilos.subtitulo}>Contraindicações e efeitos coraterais</Text>
         <Text style={estilos.texto}>É contraindicado para pessoas com úlceras ou gastrite.</Text>
         <Text style={estilos.texto}>Uso em doses altos ou prolongado pode causar irritação da mucosa gástrica.</Text>
-
+        </View>
+        
         <NotaImportante />
     </View>
-    </SafeAreaView>
+    
     </ScrollView>
+    
+  </SafeAreaView>
   )
 }
 

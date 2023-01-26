@@ -1,14 +1,34 @@
 import React from 'react';
-import { View, Text, Linking, ScrollView, Image } from 'react-native';
+import { View, Text, Linking, ScrollView, Image, SafeAreaView } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import Piao from '../../assets/images/pixao.png';
 import NotaImportante from '../NotaImportante';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 const TelaPinhao = () => {
   return(
+  <SafeAreaView>
+    
+    <View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+    <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
     <ScrollView>
-      <Image source={Piao} style={estilos.myImage}/>
-    <View accessible={true} style={estilos.myContainer}>
+      <View accessible={true}
+    accessibilityHint={"Leia o artigo"}
+    accessibilityLabel={"Texto"}
+     style={estilos.myContainer}>
+      <Image accessible={true}
+    accessibilityLabel={"Image"} source={Piao} style={estilos.myImage}/>
+    
         <Text style={estilos.strong}>Nome: Pião-roxo, Pinhão roxo</Text>
         <Text style={estilos.strong}>Nome científico: Jatropha gossypiifolia</Text>
         <Text style={estilos.strong}>Familia: Euphorbiaceae</Text>
@@ -21,6 +41,15 @@ const TelaPinhao = () => {
           desta planta e foi comprovado que a Jatropha gossypiifolia possue ácidos orgânicos, alcalóides, terpenóides, esteróides, flavonóides, lignanas e taninos.</Text>
           <Text style={estilos.texto}>A principal substância química encontrada no Pião-roxo é o diterpeno chamado jatrofona.</Text>
           <Text style={estilos.subtitulo}>Benefícios de Pião-roxo</Text>
+          <View style={{width: '80%', justifyContent: 'center', alignItems: 'center', marginVertical: 10}}>  
+          <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
           <Text style={estilos.texto}>O pião-roxo é usado para a ornamentação e por algumas populações como insecticida. Também o óleo da semente é usado tanto na preparação 
           de tintas e sabões quanto como lubrificante e combustível para motores tipo Diesel  e, ainda, na iluminação.</Text>
           <Text style={estilos.texto}>Alguns estudos apontam que esta planta tem efeitos terapeútico comprovados, mas vários estudos apontam a toxicidade desta espécie.</Text>
@@ -36,9 +65,11 @@ const TelaPinhao = () => {
           <Text style={estilos.texto}>Se olhar para consideração que fizemos até aqui, notará que esta planta é muito tóxico apesar de que se usado depois de secagem,
            infusão e decoção a toxicidade talvez pode diminuir. Os cientístas desaconselham o uso desta planta para o tratamento da saúde. <Text onPress={()=>Linking.openURL('https://www.scielo.br/j/rbpm/a/DZD6VsbyGpKSPQ3Lrwf5PSz/?lang=pt#')} style={estilos.strong}>Leia mais sobre este assunto.</Text></Text>
         </View>
+        
         <NotaImportante />
     </View>
     </ScrollView>
+    </SafeAreaView>
   )
 }
 

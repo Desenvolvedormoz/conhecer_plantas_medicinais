@@ -5,22 +5,30 @@ import estilos from "../../assets/estilos/estilos";
 import NotaImportante from "../NotaImportante";
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
-const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/3987958268';
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 export default function TelaAbacateiro(){
   
     return(
-     <ScrollView>
-   <BannerAd
+    <SafeAreaView style={estilos.telaApp} >
+    
+      <View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+        <BannerAd
       unitId={adUnitId}
       size={BannerAdSize.FULL_BANNER}
       requestOptions={{
         requestNonPersonalizedAdsOnly: true,
       }}
     />
-    <SafeAreaView >
-      <Image source={Abacateiro} style={estilos.myImage} />
-    <View accessible={true} style={estilos.myContainer}>
+      </View>
+     <ScrollView>
+    <View accessible={true}
+    accessibilityHint={"Leia o artigo"}
+    accessibilityLabel={"Texto"} style={estilos.myContainer}>
+      <Image accessible={true}
+    accessibilityLabel={"Image"} source={Abacateiro} style={estilos.myImage} />
+   
     <Text style={estilos.strong}>Nome da Planta: <Text>Abacateiro</Text></Text>
     <Text style={estilos.strong}>Nome Científico: <Text>Persea Americana</Text></Text>
     <Text style={estilos.strong}>Familia: <Text>Lauraceae</Text></Text>
@@ -28,7 +36,9 @@ export default function TelaAbacateiro(){
     <Text style={estilos.subtitulo}>Origem do Abacate</Text>
     <Text style={estilos.texto}>O Abacate originou se do México e da América do Sul, a árvore pode atingir entre 15 à 20 metros de altura.</Text>
 
-    <View accessible={true}>
+    <View accessible={true}
+    accessibilityHint={"Leia Esta Seção"}
+    accessibilityLabel={"Texto"}>
       <Text style={estilos.subtitulo}>Usos do Abacate</Text>
 
       <Text style={estilos.texto}><Text>Na Alimentação: </Text>Foi comprovados pelos estudos Científicos que
@@ -42,7 +52,9 @@ export default function TelaAbacateiro(){
         <Text style={estilos.item}>{'\u2B24'}O Abacate é rico em fibras que contribue para a saciedade.</Text>
      <Text style={estilos.item}>{'\u2B24' + ' '}Ácido gracho monoinsaturado que ajuda a regular o clesterol.</Text>
     </View>
-    <View accessible={true}>
+    <View accessible={true}
+    accessibilityHint={"Leia mais esta seção"}
+    accessibilityLabel={"Texto"}>
       <Text style={estilos.subtitulo}>Como conservar o abacate</Text>
 
       <Text style={estilos.texto}>Há três formas de conservar o abcate:</Text>
@@ -52,7 +64,9 @@ export default function TelaAbacateiro(){
           <Text style={estilos.item}>{'\u2B24' + ' '}Expremir suco de limão na superfície.</Text>
 
     </View>
-    <View accessible={true}>
+    <View accessible={true}
+    accessibilityHint={"Leia mais uma seção"}
+    accessibilityLabel={"Texto"}>
       <Text style={estilos.subtitulo}>Descobertas Científicos</Text>
       <Text style={estilos.texto}>Recentemente os cientistas descobriram dois fitonutrientes no abacates: <Text onPress={()=>Linking.openURL('https://villalvafrutas.com.br/conheca-os-poderes-medicinais-do-abacate/')} style={estilos.strong}> a 
         glutatoína e o betassitosterol</Text>, sendo a glutotoina atua como um antioxidante
@@ -62,6 +76,15 @@ export default function TelaAbacateiro(){
         que são apontados como um dos fatores de desenvolvimento de problemas cardiovasculares e do desenvolvimento de câncer.
       </Text>
       <Text style={estilos.texto}>O abacate é uma das melhores fontes de glutatoína e pode oferecer certa proteção contra o câncer oral, de garganta e outros tipos.</Text>
+     <View style={{width: '80%', justifyContent: 'center', alignItems: 'center', marginVertical: 10}}>
+      <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
     </View>
     <View accessible={true}>
       <Text style={estilos.titulo}>Composição química do abacateiro:</Text>
@@ -116,19 +139,21 @@ export default function TelaAbacateiro(){
       <Text style={estilos.texto}> É contraindicado para quem faz regime de emagrecimento ou manutenção de peso, 
         por ser muito calórico e gorduroso e também é contraindicado para mulheres grávidas
          por que pode causar aborto</Text>
-
-       
     </View>
     <NotaImportante />
     </View>
-    </SafeAreaView>
-    <BannerAd
+    </ScrollView>
+    <View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+      <BannerAd
       unitId={adUnitId}
       size={BannerAdSize.FULL_BANNER}
       requestOptions={{
         requestNonPersonalizedAdsOnly: true,
       }}
     />
-    </ScrollView>
+    </View>
+    
+    </SafeAreaView>
     )
 }

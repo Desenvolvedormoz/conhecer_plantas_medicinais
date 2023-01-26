@@ -1,19 +1,44 @@
 import React from 'react';
-import { Linking, ScrollView, Text, View, Image } from 'react-native';
+import { Linking, ScrollView, Text, View, Image, SafeAreaView } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import Picao from '../../assets/images/picaopreto.png';
 import NotaImportante from '../NotaImportante';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 const TelaPicaoPreto = () => {
-  return(
+  return( 
+    <SafeAreaView>
+      
+      <View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+      <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
     <ScrollView>
-      <Image source={Picao} style={estilos.myImage} />
-    <View accessible={true} style={estilos.myContainer}>
+      
+      <View accessible={true}
+    accessibilityHint={"Leia o artigo"}
+    accessibilityLabel={"Texto"}
+     style={estilos.myContainer}>
+
+      <Image accessible={true}
+    accessibilityLabel={"Image"} source={Picao} style={estilos.myImage} />
+    
+    
         <Text style={estilos.strong}>Nome: Picão preto</Text>
         <Text style={estilos.strong}>Nome científico: Bidens pilosa</Text>
         <Text style={estilos.strong}>Familia: Asteraceae </Text>
 
-        <View accessible={true}>
+        <View accessible={true}
+        accessibilityHint={"Leia uma seção e veja um anúncio"}
+        accessibilityLabel={"Texto"}>
           <Text style={estilos.subtitulo}>Origem de Bidens pilosa</Text>
           <Text style={estilos.texto}>Acredita se que bidens pilosa tenha se originado da América do sul e com o passar do tempo, se
             espalhado para as diferentes partes do mundo.
@@ -25,7 +50,15 @@ const TelaPicaoPreto = () => {
           a bidens pilosa tenha cerca de 200 metabólitos secundários. Onde além das que destacamos acima podemos também concontrar
           esteroides, terpenos, hidrocarbonetos alifáticos, álcoois, ácidos carboxílicos, derivados do ácido benzoico, aldeídos, cumarinas e
           outras classes de fenilpropanoides, porfirinas, substâncias nitrogenadas e sulfuradas. </Text>
-
+          <View style={{width: '80%', justifyContent: 'center', alignItems: 'center', marginVertical: 10}}>
+          <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
           <Text style={estilos.subtitulo}>Partes com mais consentração das substâncias químicas</Text>
           <Text style={estilos.texto}>Os <Text style={estilos.strong}>poliacetilenos</Text> encontram se concentrados em várias partes da planta,
           mas principalmente nas raízes.</Text>
@@ -41,9 +74,12 @@ const TelaPicaoPreto = () => {
           <Text style={estilos.subtitulo}>Partes usados da planta:</Text>
           <Text style={estilos.texto}>Todas as partes da planta, mas principalmente as folhas.</Text>
         </View>
+        
         <NotaImportante />
     </View>
     </ScrollView>
+    
+    </SafeAreaView>
   );
 }
 

@@ -5,9 +5,10 @@ import estilos from '../../assets/estilos/estilos';
 const NotaImportante = () => {
   
   return(
-    <View>
-        <View accessible={true} style={estilos.nota}></View>
-        <Text style={estilos.strong}>Nota:</Text>
+    <View accessible={true}
+         accessibilityHint={"Uma nota muito importante"}
+          accessibilityLabel={"Aviso"}>
+        <View  style={estilos.nota}></View>
         <Text style={{fontSize: 10,}}><Text style={{color: '#660E00', 
         fontSize: 14, fontWeight: 'bold', textTransform: 'uppercase'}}>
           Atenção:</Text> As plantas medicinais podem ser perigosas e até matar. Este aplicativo não se destina 

@@ -1,15 +1,35 @@
 
 import React from 'react';
-import { Linking, ScrollView, Text, View, Image } from 'react-native';
+import { Linking, ScrollView, Text, View, Image, SafeAreaView } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import Maravilha from '../../assets/images/maravilha.png';
 import NotaImportante from '../NotaImportante';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 const TelaMirabilis = () => {
   return(
+    <SafeAreaView>
+      
+      <View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+      <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
     <ScrollView>
-      <Image source={Maravilha} style={estilos.myImage} />
-    <View accessible={true} style={estilos.myContainer}>
+      <View accessible={true}
+    accessibilityHint={"Leia o artigo e veja 3 anúncios"}
+    accessibilityLabel={"Texto"}
+     style={estilos.myContainer}>
+      <Image accessible={true}
+    accessibilityLabel={"Image"} source={Maravilha} style={estilos.myImage} />
+    
         <Text style={estilos.strong}>Nome: maravilha, bela-da-noite</Text>
         <Text style={estilos.strong}>Nome científico: Mirabilis Jalapa</Text>
         <Text style={estilos.strong}>Familia: Nyctaginaceae</Text>
@@ -34,6 +54,15 @@ const TelaMirabilis = () => {
           O contato com a pele pode causar irritações cutâneas e quando ingerida pode provocar diarréias, náuseas e fortes 
           dores de estómago." </Text><Text style={estilos.strongLink} onPress={()=>Linking.openURL('https://batatadoceira.blogspot.com/2018/02/cuidado-com-as-flores-toxicas.html')}>Veja o site</Text>
          </Text>
+         <View style={{width: '80%', justifyContent: 'center', alignItems: 'center', marginVertical: 10}}>
+         <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+    </View>
          <Text style={estilos.strong}> "Embora suas raízes tuberosas sejam consideradas venenosas,..." <Text style={estilos.strong} onPress={()=>Linking.openURL('http://www.unirio.br/ccbs/ibio/herbariohuni/mirabilis-jalapa-l')}>Leia o site</Text>
          </Text>
          <Text style={estilos.subtitulo}>Observações do autor deste artigo</Text>
@@ -54,9 +83,11 @@ const TelaMirabilis = () => {
           por que seu vizinho se curou com uma planta que automaticamente seu proplema também será sem acompanhamento de um
           especialista. Lembre se disso caro, leitor.
          </Text>
+         
          <NotaImportante />
-     </View>
+      </View>
      </ScrollView>
+     </SafeAreaView>
   )
 }
 

@@ -1,16 +1,34 @@
 import React from 'react';
-import { Image, Linking, ScrollView, Text, View } from 'react-native';
+import { Image, Linking, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import estilos from '../../assets/estilos/estilos';
 import NotaImportante from '../NotaImportante';
 import Carqueja from '../../assets/images/carqueja.png';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 const TelaCarqueja = () => {
 
   return(
+    <SafeAreaView>
+     
+      <View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+        <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+      </View>
     <ScrollView>
-      
-      <Image source={Carqueja} style={estilos.myImage} />
-    <View style={estilos.myContainer}>
+       <View accessible={true}
+    accessibilityHint={"Leia o artigo"}
+    accessibilityLabel={"Texto"} style={estilos.myContainer}>
+      <Image accessible={true}
+    accessibilityLabel={"Image"} source={Carqueja} style={estilos.myImage} />
+    
         <Text style={estilos.strong}>Nome: Carqueja</Text>
         <Text style={estilos.strong}>Nome científico: Baccharis trimera</Text>
         <Text style={estilos.strong}>Familia: Asteraceae</Text>
@@ -43,10 +61,12 @@ const TelaCarqueja = () => {
                 <Text style={estilos.texto}>O uso da carqueja junto com inibidores da síntese de proteína 
                 (tetraciclina, cloranfenicol e netilmicim) também resulta em uma interação medicamentosa. 
                  <Text style={{color: '#00274E', fontSize: 18,}} onPress={()=>Linking.openURL('https://www.scielo.br/j/rbpm/a/CFY3XWVTbXbwTXWKYkhvMgv/?lang=pt')}> Aprenda mais neste artigo</Text></Text>
+                 
                 <NotaImportante />
         </View>
     </View>
     </ScrollView>
+    </SafeAreaView>
   )
 }
 

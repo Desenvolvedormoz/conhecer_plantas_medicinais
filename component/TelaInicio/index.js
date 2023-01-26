@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, ScrollView, Image, Linking, View } from "react-native";
+import { SafeAreaView, Text, ScrollView, View } from "react-native";
 import TelaListaItems from "../TelaListaItems";
 import estilos from "../../assets/estilos/estilos";
 import estilo from "./estilo";
@@ -14,11 +14,28 @@ import Mirabilis from '../../assets/images/maravilha.png';
 import Alfavacao from '../../assets/images/alfavaca.png';
 import Chanana from '../../assets/images/chanana.png';
 import ErvaJoao from '../../assets/images/ervajoao.png';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4625666726446510/4692990688';
 
 export default function TelaInicio(props) {
 return(
+<SafeAreaView>
+<View style={{paddingHorizontal: 30, width: '100%',
+        justifyContent: 'flex-start', alignItems: 'center'}}>
+    <BannerAd
+      unitId={adUnitId}
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
+</View>
+
 <ScrollView>
-<SafeAreaView style={estilos.containerAll}>
+<View accessible={true}
+    accessibilityHint={"Leia o sumário e uma descrição"}
+    accessibilityLabel={"Texto"} style={estilos.containerAll}>
     <Text style={estilo.titulos}>Escolha uma planta</Text>
 
 <TelaListaItems button={<ButtonComponent tela="Abacatéiro" />} id="1" title= "Abacateiro"
@@ -66,12 +83,15 @@ return(
     imagem = {ErvaJoao} descricao="Mentrasto é o nome científico desta planta. Ela tem sido usada para o tratamento
     de sintomas de depressão leve e moderado. As flores desta planta contém vários compostos biologicamente ativos, incluindo a hipericina e a hiperforina. Ela também tem sido usada
     para tratamento da pele e alguns dizem que esta planta pode inibir o hiv. Mas o que a ciência descobriu sobre esta planta? descubra neste artigo." />
-<View style={{height: 100, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+<View accessible={true}
+    accessibilityHint={"container com link de políticas de privacidade"}
+    accessibilityLabel={"Toque me"} style={{height: 100, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
 <Text style={estilos.strongLink} onPress={() => props.navigation.navigate('Política')}>
     Políticas de Privacidade
 </Text>
 </View>
-</SafeAreaView>
+</View>
 </ScrollView>
+</SafeAreaView>
 )
 }
